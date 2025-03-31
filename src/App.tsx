@@ -27,10 +27,10 @@ const App = () => {
   ];
 
   // 選択された素材と表示するメッセージの状態
-  const [selectedMaterial, setSelectedMaterial] = useState(null);
+  const [selectedMaterial, setSelectedMaterial] = useState<typeof materials[0] | null>(null);
 
   // 素材をクリックしたときのハンドラ
-  const handleMaterialClick = (material) => {
+  const handleMaterialClick = (material: typeof materials[0]) => {
     setSelectedMaterial(material);
   };
 
@@ -53,7 +53,7 @@ const App = () => {
         </p>
 
         <div className="grid grid-cols-3 gap-3">
-          {materials.map((material) => (
+          {materials.map((material: typeof materials[0]) => (
             <div
               key={material.id}
               className={`border rounded-lg p-2 cursor-pointer transition-all 
